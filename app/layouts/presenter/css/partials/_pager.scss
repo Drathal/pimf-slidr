@@ -1,0 +1,38 @@
+/* basic page setup */
+body {
+  padding:0;
+  margin:0 ;
+}
+
+.presentation {
+  position: absolute;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  margin:0 auto;
+}
+
+.slide {
+  position: absolute;
+  visibility: hidden;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+// fade in "text" animation
+.animate {
+ opacity: 0;
+}
+.animated {
+ opacity: 1;
+}

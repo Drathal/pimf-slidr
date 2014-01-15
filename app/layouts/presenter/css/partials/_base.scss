@@ -1,0 +1,139 @@
+body {
+  background-color: #f8f8f8;
+  background: rgb(240, 240, 240);
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(255, 255, 255)), to(rgb(210, 210, 210)));
+  background: -webkit-radial-gradient(rgb(255, 255, 255), rgb(210, 210, 210));
+  background:    -moz-radial-gradient(rgb(255, 255, 255), rgb(210, 210, 210));
+  background:      -o-radial-gradient(rgb(255, 255, 255), rgb(210, 210, 210));
+  background:         radial-gradient(rgb(255, 255, 255), rgb(210, 210, 210));
+  
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust:none;
+}
+
+iframe {
+  border:0 solid #fff;
+  background: #fff;
+}
+
+.slide:before {
+  content: "";
+  display    : block;
+  width: 11em;
+  height:2em;
+  position: absolute;
+  bottom:0.2em;
+  right:0;
+
+  background: $logo;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.no-backgroundsize .slide:before {
+  background: none;
+}
+
+.bg {
+  display:block;
+  margin   : 0;
+  padding  : 0;
+  width : 100%;
+  height : 100%;
+  position: absolute;
+  top:0;
+  z-index: -1000;
+}
+
+.bg.image img.bgimage{
+  height : 100%;
+  width  : 100%;
+}
+
+.bg.title {
+  background-color: rgba(163,189,40,1);
+  @include border-corner-radius(bottom, left, 2em);
+  @include border-corner-radius(bottom, right, 2em);
+  width:70%;
+  height:70%;
+  margin-left:15%;
+}
+
+.bg.divider {
+  background-color: rgba(89,119,134,1);
+  @include border-corner-radius(top, right, 2em);
+  @include border-corner-radius(bottom, right, 2em);
+  width:80%;
+  height:70%;
+  margin-top:10%;
+}
+
+.nav {
+  position: absolute;
+  display: block;
+  width:100%;
+  background-color: #ccc;
+  z-index: 5000;
+  text-align: center;
+  opacity: 0.9;
+  @include single-box-shadow(rgba(0,0,0,0.25), 0, 5px, 10px, 0px, false);
+  bottom:0;
+}
+
+.nav div {
+  margin:15px 5px 15px 5px;
+}
+
+.nav button {
+  border: 1px solid #666;
+  @include border-radius(0.25em);
+  @include single-box-shadow(rgba(0,0,0,0.15), 1px, 1px, 2px, 0px, false);
+  background-color: #e8e8e8;
+  margin: 0 5px 0 5px;
+  padding: 2px 5px 2px 5px;
+  color:#333;
+  font-weight: bold;
+	text-shadow: 0 1px 0px #fff;
+}
+
+.nav button:hover {
+  background-color: #fff;
+}
+
+.nav.hide {
+ display: none;
+}
+
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+pre {
+  margin: 0;
+  padding:  0.25em;
+  background-color: #444;
+  color: #92ff66;
+  font-weight: bold;
+}
+
+pre,
+.syntaxhighlighter {
+  font-size: 0.75em !important
+}
+.syntaxhighlighter .toolbar,
+a.toolbar_item.command_help.help {
+  display:none !important;
+}
+
+
+
+
+
+

@@ -1,0 +1,138 @@
+/* roll */
+.presentation.roll .slides article {
+  display: none;
+  visibility: hidden;
+	-webkit-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	   -moz-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	    -ms-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	     -o-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	        transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+}
+
+.presentation.roll .slides article.prevprev {
+	visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.presentation.roll .slides article.prev {
+	visibility: visible;
+  opacity: 0;
+  display: block;
+  z-index: 100;
+  	-webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg) translate3d(-100%, 0, 0);
+  	   -moz-transform: translate3d(-100%, 0, 0) rotateY(0deg) translate3d(-100%, 0, 0);
+  	    -ms-transform: translate3d(-100%, 0, 0) rotateY(0deg) translate3d(-100%, 0, 0);
+  	        transform: translate3d(-100%, 0, 0) rotateY(0deg) translate3d(-100%, 0, 0);
+
+}
+
+.presentation.roll .slides article.show {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: 10;
+}
+
+.presentation.roll .slides article.next {
+	visibility: visible;
+  opacity: 0;
+  display: block;
+  z-index: 100;
+	-webkit-transform: translate3d(100%, 0, 0) rotateY(0deg) translate3d(100%, 0, 0);
+	   -moz-transform: translate3d(100%, 0, 0) rotateY(0deg) translate3d(100%, 0, 0);
+	    -ms-transform: translate3d(100%, 0, 0) rotateY(0deg) translate3d(100%, 0, 0);
+	        transform: translate3d(100%, 0, 0) rotateY(0deg) translate3d(100%, 0, 0);
+
+}
+
+.presentation.roll .slides article.nextnext {
+	visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+/* roll3d */
+.presentation.roll3d {
+	-webkit-transition: -webkit-perspective .4s ease;
+	   -moz-transition: -moz-perspective .4s ease;
+	    -ms-transition: -ms-perspective .4s ease;
+	     -o-transition: -o-perspective .4s ease;
+	        transition: perspective .4s ease;
+
+	-webkit-perspective: 600px;
+	   -moz-perspective: 600px;
+	    -ms-perspective: 600px;
+	        perspective: 600px;
+
+ 	-webkit-perspective-origin: 50% 25%;
+ 	   -moz-perspective-origin: 50% 25%;
+ 	    -ms-perspective-origin: 50% 25%;
+ 	        perspective-origin: 50% 25%;
+}
+
+.presentation.roll3d .slides article {
+  display: none;
+  visibility: hidden;
+
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+
+	-webkit-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	   -moz-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	    -ms-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	     -o-transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	        transition: all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+}
+
+.presentation.roll3d .slides article.prevprev {
+	visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.presentation.roll3d .slides article.prev {
+	visibility: visible;
+  opacity: 0;
+  display: block;
+  z-index: 0;
+  	-webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+  	   -moz-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+  	    -ms-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+  	        transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+
+}
+
+.presentation.roll3d .slides article.show {
+  visibility: visible;
+  opacity: 0.999;
+  display: block;
+}
+
+.presentation.roll3d .slides article.next {
+	visibility: visible;
+  opacity: 0;
+  display: block;
+  z-index: 100;
+	-webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+	   -moz-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+	    -ms-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+	        transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+
+}
+
+.presentation.roll3d .slides article.nextnext {
+	visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.no-csstransforms .presentation.roll3d .slides article.prevprev,
+.no-csstransforms .presentation.roll3d .slides article.prev,
+.no-csstransforms .presentation.roll3d .slides article.next,
+.no-csstransforms .presentation.roll3d .slides article.nextnext {
+  visibility        : hidden;
+  opacity           : 0;
+}

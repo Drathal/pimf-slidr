@@ -1,0 +1,62 @@
+/* default - right to left animation */
+.presentation.default .slides article {
+  display            : none;
+  visibility         : hidden;
+  -webkit-transition : all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+  -moz-transition    : all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+  -ms-transition     : all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+  -o-transition      : all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+  transition         : all 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+}
+
+.presentation.default .slides article.prevprev {
+  visibility : hidden;
+  opacity    : 0;
+  display    : none;
+}
+
+.presentation.default .slides article.prev {
+  visibility        : visible;
+  opacity           : 0;
+  display           : block;
+  z-index           : 100;
+  -webkit-transform : translate(-150%, 0);
+  -moz-transform    : translate(-150%, 0);
+  -ms-transform     : translate(-150%, 0);
+  -o-transform      : translate(-150%, 0);
+  transform         : translate(-150%, 0);
+}
+
+.presentation.default .slides article.show {
+  visibility : visible;
+  opacity    : 1;
+  display    : block;
+  z-index    : 10;
+}
+
+.presentation.default .slides article.next {
+  visibility        : visible;
+  opacity           : 0;
+  display           : block;
+  z-index           : 100;
+  -webkit-transform : translate(150%, 0);
+  -moz-transform    : translate(150%, 0);
+  -ms-transform     : translate(150%, 0);
+  -o-transform      : translate(150%, 0);
+  transform         : translate(150%, 0);
+}
+
+.presentation.default .slides article.nextnext {
+  visibility        : hidden;
+  opacity           : 0;
+  display           : block;
+}
+
+.no-csstransforms .presentation.default .slides article.prevprev,
+.no-csstransforms .presentation.default .slides article.prev,
+.no-csstransforms .presentation.default .slides article.next,
+.no-csstransforms .presentation.default .slides article.nextnext {
+  visibility        : hidden;
+  opacity           : 0;
+}
+

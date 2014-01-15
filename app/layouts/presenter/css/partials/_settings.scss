@@ -1,0 +1,24 @@
+// settings
+$width        : 1024px;
+$height       : 768px;
+$timimg       : 2s;
+$gap          : -120px;
+$maincolor    : #95a500;
+$secondcolor  : #62849f;
+$linkcolor    : #6c889f;
+$textcolor    : #222222;
+$logo         : url(../image/logo.png); 
+$logoGIF      : url(../logo.gif);
+$headerfont   : "Arial", "Trebuchet MS", "Verdana", "Verdana Ref", sans serif;
+$basefont     : "Arial", "Trebuchet MS", "Verdana", "Verdana Ref", sans serif;
+$basefontsize : 18px;
+
+$default-text-shadow-color    : rgba(white, 0.6);
+$default-text-shadow-blur     : 1px;
+$default-text-shadow-v-offset : 1px;
+
+// calculated settings
+$hheight : $height - ($height * 1.5);
+$hwidth  : $width  - ($width  * 1.5);
+
+@import "mixins";

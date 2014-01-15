@@ -1,0 +1,146 @@
+/* impress */
+.presentation.impress {
+  -webkit-transition         : -webkit-perspective .4s ease;
+  -moz-transition            : -moz-perspective .4s ease;
+  -ms-transition             : -ms-perspective .4s ease;
+  -o-transition              : -o-perspective .4s ease;
+  transition                 : perspective .4s ease;
+  -webkit-perspective        : 600px;
+  -moz-perspective           : 600px;
+  -ms-perspective            : 600px;
+  perspective                : 600px;
+  -webkit-perspective-origin : 50% 25%;
+  -moz-perspective-origin    : 50% 25%;
+  -ms-perspective-origin     : 50% 25%;
+  perspective-origin         : 50% 25%;
+}
+
+.presentation.impress .slides article {
+  display                 : none;
+  visibility              : hidden;
+  -webkit-transform-style : preserve-3d;
+  -moz-transform-style    : preserve-3d;
+  -ms-transform-style     : preserve-3d;
+  transform-style         : preserve-3d;
+  -webkit-transition      : all 800ms ease-in-out;
+  -moz-transition         : all 800ms ease-in-out;
+  -ms-transition          : all 800ms ease-in-out;
+  -o-transition           : all 800ms ease-in-out;
+  transition              : all 800ms ease-in-out;
+}
+
+.presentation.impress .slides article.prevprev {
+  visibility : hidden;
+  opacity    : 0;
+  display    : block;
+}
+
+.presentation.impress .slides article.prev {
+  visibility : visible;
+  opacity    : 0.5;
+  display    : block;
+  z-index    : 0;
+}
+
+.presentation.impress .slides article.show {
+  visibility : visible;
+  opacity    : 0.999;
+  display    : block;
+  z-index    : 200;
+}
+
+.presentation.impress .slides article.next {
+  visibility : visible;
+  opacity    : 0.5;
+  display    : block;
+  z-index    : 100;
+}
+
+.presentation.impress .slides article.nextnext {
+  visibility : hidden;
+  opacity    : 0;
+  display    : block;
+}
+
+/* presets */
+.presentation.impress .slides article.show, {
+  @include simple-transform(1, 0deg, 0%, 0%, 0, 0, 0%, 0%);
+}
+.presentation.impress .slides article.next,
+.presentation.impress .slides article.nextnext {
+  @include simple-transform(1, 0deg, 400%, 400%, 0, 0, 0%, 0%);
+}
+.presentation.impress .slides article.prev,
+.presentation.impress .slides article.prevprev {
+  @include simple-transform(1, 0deg, 400%, 400%, 0, 0, 0%, 0%);
+}
+
+/* 000 */
+.presentation.impress .slides article.slide0.next {
+  @include simple-transform(1, 180deg, 100%, 100%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide0.prev {
+  @include simple-transform(1, -180deg, 100%, 0%, 0, 0, 50%, 50%);
+}
+
+/* 001 */
+.presentation.impress .slides article.slide1.next {
+  @include simple-transform(1, 180deg, 00%, -100%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide1.prev {
+  @include simple-transform(1, 0deg, 00%, -100%, 0, 0, 50%, 50%);
+}
+
+/* 002 */
+.presentation.impress .slides article.slide2.next {
+  @include simple-transform(0.5, 90deg, 0%, -200%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide2.prev {
+  @include simple-transform(1, 90deg, 200%, -200%, 0, 0, 50%, 50%);
+}
+
+/* 003 */
+.presentation.impress .slides article.slide3.next {
+  @include simple-transform(0.1, 00deg, 0%, -0%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide3.prev {
+  @include simple-transform(1, 90deg, 200%, -200%, 0, 0, 50%, 50%);
+}
+
+/* 004 */
+.presentation.impress .slides article.slide4.next {
+  @include simple-transform(0.1, 00deg, 0%, -0%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide4.prev {
+  @include simple-transform(1, 90deg, -200%, 200%, 0, 0, 50%, 50%);
+}
+
+/* 005 */
+.presentation.impress .slides article.slide5.next {
+  @include simple-transform(3, 90deg, 0%, 0%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide5.prev {
+  @include simple-transform(1, 180deg, 100%, 100%, 0, 0, 50%, 50%);
+}
+
+/* 006 */
+.presentation.impress .slides article.slide6.next {
+  @include simple-transform(1, 90deg, 0%, 0%, 0, 0, 50%, 50%);
+}
+.presentation.impress .slides article.slide6.prev {
+  @include simple-transform(2, 180deg, 100%, 100%, 0, 0, 50%, 50%);
+}
+
+.no-csstransforms3d .presentation.impress .slides article.prevprev,
+.no-csstransforms3d .presentation.impress .slides article.prev,
+.no-csstransforms3d .presentation.impress .slides article.next,
+.no-csstransforms3d .presentation.impress .slides article.nextnext,
+.no-csstransforms .presentation.impress .slides article.prevprev,
+.no-csstransforms .presentation.impress .slides article.prev,
+.no-csstransforms .presentation.impress .slides article.next,
+.no-csstransforms .presentation.impress .slides article.nextnext {
+  visibility : hidden;
+  opacity    : 0;
+  display    : none;
+}
+
