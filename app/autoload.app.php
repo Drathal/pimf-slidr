@@ -19,6 +19,8 @@ spl_autoload_register(
      */
     static $mappings = array(
       'main\\Controller\\Compile'  => '/main/Controller/Compile.php',
+      'Michelf\\Markdown' => '../php-markdown/Michelf/Markdown.php',
+      'Michelf\\MarkdownInterface' => '../php-markdown/Michelf/MarkdownInterface.php'
     );
 
     // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
