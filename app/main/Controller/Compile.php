@@ -19,7 +19,7 @@ class Compile extends Base
       'compile.phtml',
       array(
         'title' => 'Slidr:compile',
-        'content' => 'compile ' . join(' ', (array)$slidename) . '. '.$test
+        'content' => 'compile ' . join(' ', (array)$slidename) . '.'.$test
       )
     );
   }
