@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Welcome to PIMF Twig bundle
 ===========================
 This is a run ready "Hello world" application using PIMF micro framework and Twig a flexible, fast, and secure template
@@ -24,3 +25,9 @@ One of the best ways to learn PIMF is to read through the entirety of its docume
 
 Please read here: https://github.com/gjerokrsteski/pimf/wiki
 
+=======
+pimf-slidr
+==========
+
+pimf-slidr
+>>>>>>> 43ae7bb2b06b21e327e699387e3f9137af978981
