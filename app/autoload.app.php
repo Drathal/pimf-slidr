@@ -20,7 +20,8 @@ spl_autoload_register(
     static $mappings = array(
       'main\\Controller\\Compile'  => '/main/Controller/Compile.php',
       'Michelf\\Markdown' => '../php-markdown/Michelf/Markdown.php',
-      'Michelf\\MarkdownInterface' => '../php-markdown/Michelf/MarkdownInterface.php'
+      'Michelf\\MarkdownInterface' => '../php-markdown/Michelf/MarkdownInterface.php',
+      'AppUtil\\replaceTags' => '/main/Util/replaceTags.php'
     );
 
     // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

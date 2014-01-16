@@ -1,7 +1,7 @@
 <?php
 namespace main\Controller;
 
-use Pimf\Controller\Base, Pimf\View\Twig as View, \Michelf\Markdown;
+use Pimf\Controller\Base, Pimf\View\Twig as View, \Michelf\Markdown, AppUtil\replaceTags;
 
 class Compile extends Base
 {
@@ -13,8 +13,10 @@ class Compile extends Base
 
     $slidename = $this->request->fromGet()->get('slidename', 'inger_intro');
 
-    $test = $this->markdown2html("# test");
+    $sample = '# test [test]'."\n".'[anim bounceInLeft]this is a random text'."\n";
     
+    $test = $this->markdown2html($sample);
+
     echo new View(
       'compile.phtml',
       array(
@@ -25,10 +27,16 @@ class Compile extends Base
   }
 
   /**
+   * convert custom md format to html
    * @param $md
    * @return mixed
    */
   private function markdown2html($md) {
-    return Markdown::defaultTransform($md);
+    $md = replaceTags::beforeTags($md);
+    $md = Markdown::defaultTransform($md);
+    $md = replaceTags::animations($md);
+    $md = replaceTags::page($md);
+    $md = replaceTags::tags($md);
+    return $md;
   }
 }
