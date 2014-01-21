@@ -1,8 +1,12 @@
 <?php
 
+
+namespace AppUtil;
+
 /**
- * some methods for file operations
- * Class file
+ * A small Class with file methods
+ * Class replaceTags
+ * @package AppUtil
  */
 class file
 {

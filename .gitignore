@@ -30,3 +30,4 @@ publish
 pimf-framework
 Twig
 */twig_cache/*
+*/app/output/*
