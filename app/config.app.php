@@ -11,13 +11,22 @@
 |
 */
 $config_app = array(
+  
+  'slidr' => array(
+    'inputFolder'     => 'input',
+    'outputFolder'    => 'output',
+    'layoutBase'      => 'layouts/base',
+    'layout'          => 'layouts/presenter',
+    'templateArticle' => 'article.phtml',
+    'templatePage'    => 'page.phtml',
+  ),
 
   /*
   |------------------------------------------------------------------------
   | The default environment mode for your application [testing|production]
   |------------------------------------------------------------------------
   */
-  'environment' => 'production',
+  'environment' => 'testing',
 
   /*
   |------------------------------------------------------------------------
@@ -51,7 +60,7 @@ $config_app = array(
     'key'                   => 'some5secret5key5here', // application key
     'default_controller'    => 'compile', // the name of the fallback controller
     'routeable'             => true, // get cleaner URLs or not
-    'url'                   => 'http://localhost/private/slidr/pimf-twig', // URL used to access your application without a trailing slash.
+    'url'                   => 'http://localhost/private/slidr/pimf-slidr', // URL used to access your application without a trailing slash.
     'index'                 => '', // if you are using mod_rewrite to get cleaner URLs let it empty otherwise set index.php
     'asset_url'             => '', // the base URL used for your application's asset files
   ),
@@ -92,15 +101,7 @@ $config_app = array(
   */
   'bootstrap' => array(
     'expected' => array(
-      'php_version' => 5.3,
-      'extensions' => array(
-        'pdo' => 'Please navigate to "http://php.net/manual/pdo.installation.php" to find out how to install "PDO" on your system!',
-        //'pdo_sqlite' => 'Please navigate to "http://php.net/manual/ref.pdo-sqlite.php" to find out how to install "PDO_SQLITE" on your system!',
-        'pdo_mysql' => 'Please navigate to "http://php.net/manual/ref.pdo-mysql.php" to find out how to install "PDO_MYSQL" on your system!',
-        'mysql' => 'Please navigate to "http://php.net/manual/mysql.installation.php" to find out how to install "MySQL" on your system!',
-        //'sqlite' => 'Please navigate to "http://php.net/manual/sqlite.installation.php" to find out how to install "SQLite" on your system!',
-        'date' => 'Please navigate to "http://php.net/manual/datetime.installation.php" to find out how to install "Date/Time" on your system!',
-      ),
+      'php_version' => 5.3
     ),
     'local_temp_directory' => '/tmp/'
   ),
