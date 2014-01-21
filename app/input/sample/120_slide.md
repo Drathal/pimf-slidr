@@ -1,2 +1,2 @@
-[bgimage markus.jpg]
+[bgimage bg.jpg]
 text text

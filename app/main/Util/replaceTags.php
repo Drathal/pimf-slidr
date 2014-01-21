@@ -28,33 +28,27 @@ class replaceTags
   );
 
   /**
-   * additional tags
-   * @var array
-   */
-  public static $tags = array( 
-  
-    // background class
-    '|<p>\[bgclass (.*)\]</p>|i' => '<figure class="bg $1"></figure>',
-
-    // background image
-    '|<p>\[bgimage (.*)\]</p>|i' => '<figure class="bg image"><img alt="background" class="bgimage" src="image/$1" /></figure>',
-
-    // background iframe
-    '|<p>\[iframe src="(.*)" height="([0-9*])" width="([0-9*])"\]</p>|i' => '<iframe class="bg iframe" src="$1" height="$2" width="$3"></iframe>',
-    '|<p>\[iframe src="(.*)" width="([0-9*])" height="([0-9*])"\]</p>|i' => '<iframe class="bg iframe" src="$1" width="$2" height="$3"></iframe>',
-    '|<p>\[iframe src="(.*)"\]</p>|i' => '<iframe class="bg iframe" src="$1" ></iframe>',
-    '|<p>\[iframe (.*)\]</p>|i' => '<iframe class="bg iframe" src="$1" ></iframe>',
-
-    // circle
-    '|\[circle\]|i' => '<span class="circle"></span>',
-    '|\[square\]|i' => '<span class="square"></span>'
-  );
-
-  /**
    * tags that should be used before we transform the string into html
    * @var array
    */
   public static $beforeTags = array( 
+    
+    // iframe
+    '|\[iframe src="(.*)" height="([0-9*])" width="([0-9*])"\]|i' => '<iframe class="bg iframe" src="$1" height="$2" width="$3"></iframe>',
+    '|\[iframe src="(.*)" width="([0-9*])" height="([0-9*])"\]|i' => '<iframe class="bg iframe" src="$1" width="$2" height="$3"></iframe>',
+    '|\[iframe src="(.*)"\]|i' => '<iframe class="bg iframe" src="$1" ></iframe>',
+    '|\[iframe (.*)\]|i' => '<iframe class="bg iframe" src="$1" ></iframe>',
+    
+    // background class
+    '|\[bgclass (.*)\]|i' => '<figure class="bg $1"></figure>',
+    
+    // background image
+    '|\[bgimage (.*)\]|i' => '<figure class="bg image"><img alt="background" class="bgimage" src="image/$1" /></figure>',
+    
+     // symbols
+    '|\[circle\]|i' => '<span class="circle"></span>',
+    '|\[square\]|i' => '<span class="square"></span>',
+    
     // syntax highlight
     '|\[script (\w+)\](.*?)\[/script\]|ims' => '<script type="syntaxhighlighter" class="brush: $1"><![CDATA[ $2 ]]></script>',
     
@@ -73,21 +67,11 @@ class replaceTags
   }
 
   /**
-   * apply tags
-   * @param $string
-   * @return mixed
-   */
-  public static function tags($string)
-  {
-    return self::replaceAll($string,self::$tags);
-  }
-
-  /**
    * apply tags before html transformation
    * @param $string
    * @return mixed
    */
-  public static function beforeTags($string)
+  public static function tags($string)
   {
     return self::replaceAll($string,self::$beforeTags);
   }

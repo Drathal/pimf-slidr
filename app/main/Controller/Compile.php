@@ -40,11 +40,10 @@ class Compile extends Base
    */
   private function markdown2html($md)
   {
-    $md = replaceTags::beforeTags($md);
+    $md = replaceTags::tags($md);
     $md = Markdown::defaultTransform($md);
     $md = replaceTags::animations($md);
     $md = replaceTags::page($md);
-    $md = replaceTags::tags($md);
     return $md."\n -------------- \n";
   }
 
