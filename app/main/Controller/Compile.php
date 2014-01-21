@@ -148,6 +148,13 @@ class Compile extends Base
       $filters
     );
     
+    // copy images to output dir
+    file::copyRecursive(
+      $this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . 'image',
+      $destinationDirectory . DIRECTORY_SEPARATOR . 'image',
+      $filters
+    );
+    
     // convert markdown files
     $pages = array_filter(scandir($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename), function ($i) {
       return strstr($i,'.md');
