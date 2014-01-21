@@ -15,7 +15,7 @@ class replaceTags
    * @var array
    */
   public static $animations = array(
-    '#<(\w+)>\[anim (bounceInLeft|bounceInRight|bounceInUp|bounceInDown|fadeIn|flipInX|flipInY|rollIn|rotateIn)\](.*?)</(?1)>#ims' => '<$1 class="Off-$2 animate">$3</$1>',    
+    '#<(\w+)>\[anim (bounceInLeft|bounceInRight|bounceInUp|bounceInDown|fadeIn|flipInX|flipInY|rollIn|rotateIn)\](.*?)</\1>#ims' => '<$1 class="Off-$2 animate">$3</$1>',    
   );
 
   /**

@@ -18,7 +18,7 @@
       animclass : 'animate',
       animshow : 'animated',
       topMargin : 0,
-      transitions : [ 'default','roll3d', 'default', 'impress']
+      transitions : [ 'roll3d', 'default', 'impress']
     };
 
     var intern = {

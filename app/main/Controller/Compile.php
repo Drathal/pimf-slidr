@@ -17,25 +17,32 @@ class Compile extends Base
    */
   public function indexAction()
   {
-    
+    // get params
     $slidename = $this->request->fromGet()->get('slidename', 'sample');
-    $slideHtml = $this->getOutput($slidename);
     
+    // build output
+    $slideHtml = $this->getOutput($slidename);
     $slideView = new View(
       'article.phtml',
       array(
+        'slidename' => $slidename,
         'slides'   => $slideHtml,
       )
     );
-    
     $fullSlide = $slideView->render();
+    
+    // write output to disk
+    $destination = $this->getOutputPath() . DIRECTORY_SEPARATOR . $slidename. DIRECTORY_SEPARATOR . 'index.html';
+    file_put_contents($destination,$fullSlide);
+    chmod($destination,0755);
 
     $view = new View(
       'compile.phtml',
       array(
-        'title'    => 'Slidr:compile',
-        'subtitle' => 'compile ' . join(' ', (array)$slidename) . '.',
-        'content'  => $fullSlide
+        'title'     => 'Slidr:compile',
+        'slidename' => $slidename,        
+        'subtitle'  => 'compile ' . join(' ', (array)$slidename) . '.',
+        'content'   => $fullSlide
       )
     );
 
@@ -148,7 +155,7 @@ class Compile extends Base
     
     $html = array();
     foreach ($pages as $page) {
-      $html[] = $this->markdown2html(file_get_contents($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . $page));
+      $html[] = "\n".'<!---- ('.$page.') ---->'."\n".$this->markdown2html(file_get_contents($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . $page));
     }
     
     return $html;
