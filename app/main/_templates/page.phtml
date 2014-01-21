@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>#title#</title>
+    <title>{{ title }}</title>
   
     <meta charset="utf-8"/>
     <meta name="description" content="#description#"/>
@@ -25,7 +25,9 @@
   <body>
     <section class="presentation">
       <section class="slides">
-        #slides#
+        
+        {% block slides %}{% endblock %}
+
       </section>
     </section>
   </body>

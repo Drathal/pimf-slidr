@@ -17,16 +17,25 @@ class Compile extends Base
    */
   public function indexAction()
   {
+    
     $slidename = $this->request->fromGet()->get('slidename', 'sample');
-
-    $output = $this->getOutput($slidename);
+    $slideHtml = $this->getOutput($slidename);
+    
+    $slideView = new View(
+      'article.phtml',
+      array(
+        'slides'   => $slideHtml,
+      )
+    );
+    
+    $fullSlide = $slideView->render();
 
     $view = new View(
       'compile.phtml',
       array(
         'title'    => 'Slidr:compile',
         'subtitle' => 'compile ' . join(' ', (array)$slidename) . '.',
-        'content'  => $output
+        'content'  => $fullSlide
       )
     );
 
@@ -44,7 +53,8 @@ class Compile extends Base
     $md = Markdown::defaultTransform($md);
     $md = replaceTags::animations($md);
     $md = replaceTags::page($md);
-    return $md."\n -------------- \n";
+    $md = trim(preg_replace('/  +/i', ' ', $md));
+    return $md;
   }
 
   /**
@@ -136,9 +146,9 @@ class Compile extends Base
       return strstr($i,'.md');
     });
     
-    $html = '';
+    $html = array();
     foreach ($pages as $page) {
-      $html .= $this->markdown2html(file_get_contents($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . $page));
+      $html[] = $this->markdown2html(file_get_contents($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . $page));
     }
     
     return $html;

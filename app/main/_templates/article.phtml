@@ -1,5 +1,11 @@
+{% extends "page.phtml" %}
 
-<article class="slide slide#slidenum#"><a id="slide#slidenum#"></a>
-  #content#
-</article>
+{% block slides %}
+  {% for slide in slides %}
+    <article class="slide slide{{ loop.index0 }}"><a id="slide{{ loop.index0 }}"></a>
+      {{ slide|raw }}
+    </article>
+  {% endfor %}
+{% endblock %}
+
 

@@ -1,2 +1,2 @@
 [bgimage bg.jpg]
-text text
+text text           text
