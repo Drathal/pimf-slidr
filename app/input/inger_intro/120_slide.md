@@ -1,1 +1,0 @@
-[bgimage markus.jpg]

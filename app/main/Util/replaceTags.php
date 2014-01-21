@@ -23,8 +23,8 @@ class replaceTags
    * @var array
    */
   public static $page = array(
-    '<p>[page:title]</p>'   => '<figure class="bg title"><div>{page}</div></figure>',
-    '<p>[page:divider]</p>' => '<figure class="bg divider"><div>{page}</div></figure>'
+    '<p>[page:title]</p>'   => '<figure class="bg title"><div>{content}</div></figure>',
+    '<p>[page:divider]</p>' => '<figure class="bg divider"><div>{content}</div></figure>'
   );
 
   /**

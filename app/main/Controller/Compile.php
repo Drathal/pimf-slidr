@@ -3,6 +3,12 @@ namespace main\Controller;
 
 use Pimf\Controller\Base, Pimf\View\Twig as View, \Michelf\Markdown, AppUtil\replaceTags, \Pimf\Registry, AppUtil\file;
 
+/**
+ * todo : refactor get{path} methods
+ * 
+ * Class Compile
+ * @package main\Controller
+ */
 class Compile extends Base
 {
 
@@ -11,15 +17,16 @@ class Compile extends Base
    */
   public function indexAction()
   {
-    $slidename = $this->request->fromGet()->get('slidename', 'inger_intro');
+    $slidename = $this->request->fromGet()->get('slidename', 'sample');
 
-    $this->setupOutput($slidename);
+    $output = $this->getOutput($slidename);
 
     $view = new View(
       'compile.phtml',
       array(
-        'title' => 'Slidr:compile',
-        'content' => 'compile ' . join(' ', (array)$slidename) . '.'
+        'title'    => 'Slidr:compile',
+        'subtitle' => 'compile ' . join(' ', (array)$slidename) . '.',
+        'content'  => $output
       )
     );
 
@@ -38,7 +45,7 @@ class Compile extends Base
     $md = replaceTags::animations($md);
     $md = replaceTags::page($md);
     $md = replaceTags::tags($md);
-    return $md;
+    return $md."\n -------------- \n";
   }
 
   /**
@@ -87,8 +94,9 @@ class Compile extends Base
 
   /**
    * @param $slidename
+   * @return string
    */
-  private function setupOutput($slidename)
+  private function getOutput($slidename)
   {
 
     $filters = array(
@@ -102,7 +110,6 @@ class Compile extends Base
       DIRECTORY_SEPARATOR . '**' . DIRECTORY_SEPARATOR . '.hidden',
       DIRECTORY_SEPARATOR . '**' . DIRECTORY_SEPARATOR . 'partials',
     );
-    
     
     $destinationDirectory = $this->getOutputPath() . DIRECTORY_SEPARATOR . $slidename;
 
@@ -125,14 +132,16 @@ class Compile extends Base
       $filters
     );
     
-    $out  = $this->getLayoutBasePath().' -> '.$destinationDirectory ."<br>";
-    $out .= $this->getLayoutPath().' -> '.$destinationDirectory ."<br>";
-
-    echo $out;
-
-    //$sample = '# test [test]'."\n".'[anim bounceInLeft]this is a random text'."\n";
-    //$test = $this->markdown2html($sample);
-
-
+    // convert markdown files
+    $pages = array_filter(scandir($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename), function ($i) {
+      return strstr($i,'.md');
+    });
+    
+    $html = '';
+    foreach ($pages as $page) {
+      $html .= $this->markdown2html(file_get_contents($this->getInputPath() . DIRECTORY_SEPARATOR . $slidename . DIRECTORY_SEPARATOR . $page));
+    }
+    
+    return $html;
   }
 }
